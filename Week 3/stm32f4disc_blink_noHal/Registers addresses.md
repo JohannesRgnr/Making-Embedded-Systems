@@ -1,7 +1,7 @@
 
 ## Addresses of the registers: (cf . Reference manual)
 
-Onboard LEDs are connected to the STM32 I/O PD13, PD14, PD15, PD16.
+Onboard LEDs are connected to the STM32 I/O PD12, PD13, PD14, PD15.
 
 •	Address of the Clock control register (AHB1ENR) 
 Base Address: 0x4002 3800 
