@@ -1535,28 +1535,28 @@ LOAD /Users/johannes/Library/Application Support/Code/User/globalStorage/bmd.stm
  .debug_line    0x0000000000007e7b     0x1d7f build/stm32f4xx_hal_tim_ex.o
  .debug_line    0x0000000000009bfa       0x76 build/startup_stm32f407xx.o
 
-.debug_str      0x0000000000000000     0x309b
- .debug_str     0x0000000000000000     0x10ad build/main.o
-                                       0x1179 (size before relaxing)
- .debug_str     0x00000000000010ad       0x90 build/stm32f4xx_hal_msp.o
+.debug_str      0x0000000000000000     0x313c
+ .debug_str     0x0000000000000000     0x10cc build/main.o
+                                       0x1198 (size before relaxing)
+ .debug_str     0x00000000000010cc      0x112 build/stm32f4xx_hal_msp.o
                                         0xd99 (size before relaxing)
- .debug_str     0x000000000000113d      0x154 build/stm32f4xx_it.o
+ .debug_str     0x00000000000011de      0x154 build/stm32f4xx_it.o
                                         0x854 (size before relaxing)
- .debug_str     0x0000000000001291       0xd8 build/system_stm32f4xx.o
+ .debug_str     0x0000000000001332       0xd8 build/system_stm32f4xx.o
                                         0x3ab (size before relaxing)
- .debug_str     0x0000000000001369      0x32f build/stm32f4xx_hal.o
+ .debug_str     0x000000000000140a      0x32f build/stm32f4xx_hal.o
                                         0xb9a (size before relaxing)
- .debug_str     0x0000000000001698      0x42f build/stm32f4xx_hal_cortex.o
+ .debug_str     0x0000000000001739      0x42f build/stm32f4xx_hal_cortex.o
                                         0xc62 (size before relaxing)
- .debug_str     0x0000000000001ac7       0xca build/stm32f4xx_hal_gpio.o
+ .debug_str     0x0000000000001b68       0xca build/stm32f4xx_hal_gpio.o
                                         0x516 (size before relaxing)
- .debug_str     0x0000000000001b91      0x1a1 build/stm32f4xx_hal_rcc.o
+ .debug_str     0x0000000000001c32      0x1a1 build/stm32f4xx_hal_rcc.o
                                         0x73c (size before relaxing)
- .debug_str     0x0000000000001d32      0xe59 build/stm32f4xx_hal_tim.o
+ .debug_str     0x0000000000001dd3      0xe59 build/stm32f4xx_hal_tim.o
                                        0x1725 (size before relaxing)
- .debug_str     0x0000000000002b8b      0x4eb build/stm32f4xx_hal_tim_ex.o
+ .debug_str     0x0000000000002c2c      0x4eb build/stm32f4xx_hal_tim_ex.o
                                         0xf41 (size before relaxing)
- .debug_str     0x0000000000003076       0x25 build/startup_stm32f407xx.o
+ .debug_str     0x0000000000003117       0x25 build/startup_stm32f407xx.o
                                          0xa7 (size before relaxing)
 
 .debug_frame    0x0000000000000000     0x1718
