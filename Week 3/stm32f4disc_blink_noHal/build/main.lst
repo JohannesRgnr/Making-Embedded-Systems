@@ -1,0 +1,267 @@
+ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	1
+  21              		.global	main
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	main:
+  27              	.LFB0:
+  28              		.file 1 "Core/Src/main.c"
+   1:Core/Src/main.c **** /**
+   2:Core/Src/main.c ****  * @file main.c
+   3:Core/Src/main.c ****  * @author johannes regnier
+   4:Core/Src/main.c ****  * @brief blinking, no HAL, only registers
+   5:Core/Src/main.c ****  * @version 0.1
+   6:Core/Src/main.c ****  * @date 2023-10-14
+   7:Core/Src/main.c ****  *
+   8:Core/Src/main.c ****  *
+   9:Core/Src/main.c ****  */
+  10:Core/Src/main.c **** 
+  11:Core/Src/main.c **** #include <stdint.h>
+  12:Core/Src/main.c **** 
+  13:Core/Src/main.c **** int main(void)
+  14:Core/Src/main.c **** {
+  29              		.loc 1 14 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  15:Core/Src/main.c ****     /**
+  16:Core/Src/main.c ****      * Blink onboard LEDs: PD12, PD13, PD14, PD15.
+  17:Core/Src/main.c ****      * No HAL. No Clock config.
+  18:Core/Src/main.c ****      */
+  19:Core/Src/main.c **** 
+  20:Core/Src/main.c ****     uint32_t *pClkCtrlReg = (uint32_t *)0x40023830;   // Address of the Clock control register (AHB
+  34              		.loc 1 20 5 view .LVU1
+  35              	.LVL0:
+  21:Core/Src/main.c ****     uint32_t *pPortDModeReg = (uint32_t *)0x40020C00; // Address of the GPIOD mode register
+  36              		.loc 1 21 5 view .LVU2
+  22:Core/Src/main.c ****     uint32_t *pPortDOutReg = (uint32_t *)0x40020C14;  // Address of the GPIOD output data register
+ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 2
+
+
+  37              		.loc 1 22 5 view .LVU3
+  23:Core/Src/main.c **** 
+  24:Core/Src/main.c ****     /* Enable the clock for GPIOD peripherals in the AHB1ENR */
+  25:Core/Src/main.c ****     *pClkCtrlReg |= (1 << 3); // SET the 3rd bit position
+  38              		.loc 1 25 5 view .LVU4
+  39              		.loc 1 25 18 is_stmt 0 view .LVU5
+  40 0000 2D4A     		ldr	r2, .L7
+  41 0002 D2F83038 		ldr	r3, [r2, #2096]
+  42 0006 43F00803 		orr	r3, r3, #8
+  43 000a C2F83038 		str	r3, [r2, #2096]
+  26:Core/Src/main.c **** 
+  27:Core/Src/main.c ****     /* Configure the mode of the IO Pins 12, 13, 14, 15 as output */
+  28:Core/Src/main.c ****     /* CLEAR the bits 24, 25, 26, 27, 28, 29, 30, 31 */
+  29:Core/Src/main.c ****     *pPortDModeReg &= ~(3 << 24); // 3 is b11, changes two bits to 1. With negate, becomes 00.
+  44              		.loc 1 29 5 is_stmt 1 view .LVU6
+  45              		.loc 1 29 20 is_stmt 0 view .LVU7
+  46 000e A2F54052 		sub	r2, r2, #12288
+  47 0012 D2F8003C 		ldr	r3, [r2, #3072]
+  48 0016 23F04071 		bic	r1, r3, #50331648
+  49 001a C2F8001C 		str	r1, [r2, #3072]
+  30:Core/Src/main.c ****     *pPortDModeReg &= ~(3 << 26);
+  50              		.loc 1 30 5 is_stmt 1 view .LVU8
+  51              		.loc 1 30 20 is_stmt 0 view .LVU9
+  52 001e 23F07061 		bic	r1, r3, #251658240
+  53 0022 C2F8001C 		str	r1, [r2, #3072]
+  31:Core/Src/main.c ****     *pPortDModeReg &= ~(3 << 28);
+  54              		.loc 1 31 5 is_stmt 1 view .LVU10
+  55              		.loc 1 31 20 is_stmt 0 view .LVU11
+  56 0026 23F07C51 		bic	r1, r3, #1056964608
+  57 002a C2F8001C 		str	r1, [r2, #3072]
+  32:Core/Src/main.c ****     *pPortDModeReg &= ~(3 << 30);
+  58              		.loc 1 32 5 is_stmt 1 view .LVU12
+  59              		.loc 1 32 20 is_stmt 0 view .LVU13
+  60 002e 23F07F43 		bic	r3, r3, #-16777216
+  61 0032 C2F8003C 		str	r3, [r2, #3072]
+  33:Core/Src/main.c **** 
+  34:Core/Src/main.c ****     /* SET bits 24, 26, 28, 30, for general purpose output mode */
+  35:Core/Src/main.c ****     *pPortDModeReg |= (1 << 24);
+  62              		.loc 1 35 5 is_stmt 1 view .LVU14
+  63              		.loc 1 35 20 is_stmt 0 view .LVU15
+  64 0036 43F08071 		orr	r1, r3, #16777216
+  65 003a C2F8001C 		str	r1, [r2, #3072]
+  36:Core/Src/main.c ****     *pPortDModeReg |= (1 << 26);
+  66              		.loc 1 36 5 is_stmt 1 view .LVU16
+  67              		.loc 1 36 20 is_stmt 0 view .LVU17
+  68 003e 43F0A061 		orr	r1, r3, #83886080
+  69 0042 C2F8001C 		str	r1, [r2, #3072]
+  37:Core/Src/main.c ****     *pPortDModeReg |= (1 << 28);
+  70              		.loc 1 37 5 is_stmt 1 view .LVU18
+  71              		.loc 1 37 20 is_stmt 0 view .LVU19
+  72 0046 43F0A851 		orr	r1, r3, #352321536
+  73 004a C2F8001C 		str	r1, [r2, #3072]
+  38:Core/Src/main.c ****     *pPortDModeReg |= (1 << 30);
+  74              		.loc 1 38 5 is_stmt 1 view .LVU20
+  75              		.loc 1 38 20 is_stmt 0 view .LVU21
+  76 004e 43F0AA43 		orr	r3, r3, #1426063360
+  77 0052 C2F8003C 		str	r3, [r2, #3072]
+ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 3
+
+
+  78 0056 1AE0     		b	.L6
+  79              	.LVL1:
+  80              	.L3:
+  81              	.LBB2:
+  39:Core/Src/main.c **** 
+  40:Core/Src/main.c ****     while (1)
+  41:Core/Src/main.c ****     {
+  42:Core/Src/main.c **** 
+  43:Core/Src/main.c ****         /* SET bits 12, 13, 14, 15 of the output data register to make IO Pins as HIGH --> turns LE
+  44:Core/Src/main.c ****         *pPortDOutReg |= (1 << 12);
+  45:Core/Src/main.c ****         *pPortDOutReg |= (1 << 13);
+  46:Core/Src/main.c ****         *pPortDOutReg |= (1 << 14);
+  47:Core/Src/main.c ****         *pPortDOutReg |= (1 << 15);
+  48:Core/Src/main.c **** 
+  49:Core/Src/main.c ****         // delay
+  50:Core/Src/main.c ****         for (uint32_t i = 0; i < 600000; i++);
+  82              		.loc 1 50 43 is_stmt 1 discriminator 3 view .LVU22
+  83 0058 0133     		adds	r3, r3, #1
+  84              	.LVL2:
+  85              	.L2:
+  86              		.loc 1 50 32 discriminator 1 view .LVU23
+  87 005a 184A     		ldr	r2, .L7+4
+  88 005c 9342     		cmp	r3, r2
+  89 005e FBD9     		bls	.L3
+  90              	.LBE2:
+  51:Core/Src/main.c **** 
+  52:Core/Src/main.c ****         /* Turn off LEDs */
+  53:Core/Src/main.c ****         *pPortDOutReg &= ~(1 << 12);
+  91              		.loc 1 53 9 view .LVU24
+  92              		.loc 1 53 23 is_stmt 0 view .LVU25
+  93 0060 21F48052 		bic	r2, r1, #4096
+  94 0064 164B     		ldr	r3, .L7+8
+  95              	.LVL3:
+  96              		.loc 1 53 23 view .LVU26
+  97 0066 C3F8142C 		str	r2, [r3, #3092]
+  54:Core/Src/main.c ****         *pPortDOutReg &= ~(1 << 13);
+  98              		.loc 1 54 9 is_stmt 1 view .LVU27
+  99              		.loc 1 54 23 is_stmt 0 view .LVU28
+ 100 006a 21F44052 		bic	r2, r1, #12288
+ 101 006e C3F8142C 		str	r2, [r3, #3092]
+  55:Core/Src/main.c ****         *pPortDOutReg &= ~(1 << 14);
+ 102              		.loc 1 55 9 is_stmt 1 view .LVU29
+ 103              		.loc 1 55 23 is_stmt 0 view .LVU30
+ 104 0072 21F4E042 		bic	r2, r1, #28672
+ 105 0076 C3F8142C 		str	r2, [r3, #3092]
+  56:Core/Src/main.c ****         *pPortDOutReg &= ~(1 << 15);
+ 106              		.loc 1 56 9 is_stmt 1 view .LVU31
+ 107              		.loc 1 56 23 is_stmt 0 view .LVU32
+ 108 007a 21F47041 		bic	r1, r1, #61440
+ 109 007e C3F8141C 		str	r1, [r3, #3092]
+  57:Core/Src/main.c **** 
+  58:Core/Src/main.c ****         // delay
+  59:Core/Src/main.c ****         for (uint32_t i = 0; i < 600000; i++);
+ 110              		.loc 1 59 9 is_stmt 1 view .LVU33
+ 111              	.LBB3:
+ 112              		.loc 1 59 14 view .LVU34
+ 113              	.LVL4:
+ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 4
+
+
+ 114              		.loc 1 59 23 is_stmt 0 view .LVU35
+ 115 0082 0023     		movs	r3, #0
+ 116              		.loc 1 59 9 view .LVU36
+ 117 0084 00E0     		b	.L4
+ 118              	.LVL5:
+ 119              	.L5:
+ 120              		.loc 1 59 43 is_stmt 1 discriminator 3 view .LVU37
+ 121 0086 0133     		adds	r3, r3, #1
+ 122              	.LVL6:
+ 123              	.L4:
+ 124              		.loc 1 59 32 discriminator 1 view .LVU38
+ 125 0088 0C4A     		ldr	r2, .L7+4
+ 126 008a 9342     		cmp	r3, r2
+ 127 008c FBD9     		bls	.L5
+ 128              	.LVL7:
+ 129              	.L6:
+ 130              		.loc 1 59 32 is_stmt 0 discriminator 1 view .LVU39
+ 131              	.LBE3:
+  40:Core/Src/main.c ****     {
+ 132              		.loc 1 40 5 is_stmt 1 view .LVU40
+  44:Core/Src/main.c ****         *pPortDOutReg |= (1 << 13);
+ 133              		.loc 1 44 9 view .LVU41
+  44:Core/Src/main.c ****         *pPortDOutReg |= (1 << 13);
+ 134              		.loc 1 44 23 is_stmt 0 view .LVU42
+ 135 008e 0C4B     		ldr	r3, .L7+8
+ 136 0090 D3F8141C 		ldr	r1, [r3, #3092]
+ 137 0094 41F48052 		orr	r2, r1, #4096
+ 138 0098 C3F8142C 		str	r2, [r3, #3092]
+  45:Core/Src/main.c ****         *pPortDOutReg |= (1 << 14);
+ 139              		.loc 1 45 9 is_stmt 1 view .LVU43
+  45:Core/Src/main.c ****         *pPortDOutReg |= (1 << 14);
+ 140              		.loc 1 45 23 is_stmt 0 view .LVU44
+ 141 009c 41F44052 		orr	r2, r1, #12288
+ 142 00a0 C3F8142C 		str	r2, [r3, #3092]
+  46:Core/Src/main.c ****         *pPortDOutReg |= (1 << 15);
+ 143              		.loc 1 46 9 is_stmt 1 view .LVU45
+  46:Core/Src/main.c ****         *pPortDOutReg |= (1 << 15);
+ 144              		.loc 1 46 23 is_stmt 0 view .LVU46
+ 145 00a4 41F4E042 		orr	r2, r1, #28672
+ 146 00a8 C3F8142C 		str	r2, [r3, #3092]
+  47:Core/Src/main.c **** 
+ 147              		.loc 1 47 9 is_stmt 1 view .LVU47
+  47:Core/Src/main.c **** 
+ 148              		.loc 1 47 23 is_stmt 0 view .LVU48
+ 149 00ac 41F47041 		orr	r1, r1, #61440
+ 150 00b0 C3F8141C 		str	r1, [r3, #3092]
+  50:Core/Src/main.c **** 
+ 151              		.loc 1 50 9 is_stmt 1 view .LVU49
+ 152              	.LBB4:
+  50:Core/Src/main.c **** 
+ 153              		.loc 1 50 14 view .LVU50
+ 154              	.LVL8:
+  50:Core/Src/main.c **** 
+ 155              		.loc 1 50 23 is_stmt 0 view .LVU51
+ 156 00b4 0023     		movs	r3, #0
+  50:Core/Src/main.c **** 
+ 157              		.loc 1 50 9 view .LVU52
+ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 5
+
+
+ 158 00b6 D0E7     		b	.L2
+ 159              	.L8:
+ 160              		.align	2
+ 161              	.L7:
+ 162 00b8 00300240 		.word	1073885184
+ 163 00bc BF270900 		.word	599999
+ 164 00c0 00000240 		.word	1073872896
+ 165              	.LBE4:
+ 166              		.cfi_endproc
+ 167              	.LFE0:
+ 169              		.text
+ 170              	.Letext0:
+ 171              		.file 2 "/Users/johannes/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/
+ 172              		.file 3 "/Users/johannes/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/
+ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+/var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s:20     .text.main:0000000000000000 $t
+/var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s:26     .text.main:0000000000000000 main
+/var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s:162    .text.main:00000000000000b8 $d
+
+NO UNDEFINED SYMBOLS

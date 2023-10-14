@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "name": "STM32",
+      "includePath": [
+        "Core/Inc"
+      ],
+      "defines": [
+        "STM32F407xx"
+      ],
+      "compilerPath": "/Users/johannes/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/arm-none-eabi-gcc/11.2.1-1.2.2/.content/bin/arm-none-eabi-gcc"
+    }
+  ],
+  "version": 4
+}
