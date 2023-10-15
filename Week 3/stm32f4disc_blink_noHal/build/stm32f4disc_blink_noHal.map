@@ -455,20 +455,20 @@ LOAD /Users/johannes/Library/Application Support/Code/User/globalStorage/bmd.stm
  .debug_line    0x0000000000000000      0x28f build/main.o
  .debug_line    0x000000000000028f       0x76 build/startup_stm32f407xx.o
 
-.debug_str      0x0000000000000000      0x1d1
- .debug_str     0x0000000000000000      0x1ac build/main.o
-                                        0x1e9 (size before relaxing)
- .debug_str     0x00000000000001ac       0x25 build/startup_stm32f407xx.o
-                                         0x9b (size before relaxing)
+.debug_str      0x0000000000000000      0x1f0
+ .debug_str     0x0000000000000000      0x1cb build/main.o
+                                        0x208 (size before relaxing)
+ .debug_str     0x00000000000001cb       0x25 build/startup_stm32f407xx.o
+                                         0xba (size before relaxing)
 
 .debug_frame    0x0000000000000000       0x20
  .debug_frame   0x0000000000000000       0x20 build/main.o
 
 .debug_line_str
-                0x0000000000000000       0x8c
+                0x0000000000000000       0xab
  .debug_line_str
-                0x0000000000000000       0x8c build/startup_stm32f407xx.o
-                                         0xa2 (size before relaxing)
+                0x0000000000000000       0xab build/startup_stm32f407xx.o
+                                         0xc1 (size before relaxing)
 
 Cross Reference Table
 

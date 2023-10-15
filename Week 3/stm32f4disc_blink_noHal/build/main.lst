@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 1
+ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//cc5GbyHZ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 1
   21:Core/Src/main.c ****     uint32_t *pPortDModeReg = (uint32_t *)0x40020C00; // Address of the GPIOD mode register
   36              		.loc 1 21 5 view .LVU2
   22:Core/Src/main.c ****     uint32_t *pPortDOutReg = (uint32_t *)0x40020C14;  // Address of the GPIOD output data register
-ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 2
+ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//cc5GbyHZ.s 			page 2
 
 
   37              		.loc 1 22 5 view .LVU3
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 1
   75              		.loc 1 38 20 is_stmt 0 view .LVU21
   76 004e 43F0AA43 		orr	r3, r3, #1426063360
   77 0052 C2F8003C 		str	r3, [r2, #3072]
-ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 3
+ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//cc5GbyHZ.s 			page 3
 
 
   78 0056 1AE0     		b	.L6
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 1
  111              	.LBB3:
  112              		.loc 1 59 14 view .LVU34
  113              	.LVL4:
-ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 4
+ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//cc5GbyHZ.s 			page 4
 
 
  114              		.loc 1 59 23 is_stmt 0 view .LVU35
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 1
  156 00b4 0023     		movs	r3, #0
   50:Core/Src/main.c **** 
  157              		.loc 1 50 9 view .LVU52
-ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 5
+ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//cc5GbyHZ.s 			page 5
 
 
  158 00b6 D0E7     		b	.L2
@@ -255,13 +255,13 @@ ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 1
  170              	.Letext0:
  171              		.file 2 "/Users/johannes/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/
  172              		.file 3 "/Users/johannes/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/
-ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s 			page 6
+ARM GAS  /var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//cc5GbyHZ.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-/var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s:20     .text.main:0000000000000000 $t
-/var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s:26     .text.main:0000000000000000 main
-/var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//ccz5vDxV.s:162    .text.main:00000000000000b8 $d
+/var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//cc5GbyHZ.s:20     .text.main:0000000000000000 $t
+/var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//cc5GbyHZ.s:26     .text.main:0000000000000000 main
+/var/folders/0z/tsy30v1j4xl4_7kw94k978ww0000gn/T//cc5GbyHZ.s:162    .text.main:00000000000000b8 $d
 
 NO UNDEFINED SYMBOLS
