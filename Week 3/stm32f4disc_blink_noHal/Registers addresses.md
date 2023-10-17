@@ -20,4 +20,5 @@ In startup file, add at the end: **.weak SystemInit**
 
 In Makefile:
 - comment out USE_HAL_DRIVER
-- source files: keep only startup .s file, and Src/main.c (or Core/Src/main.c) • comment out and erase all other includes, header and source files
+- source files: keep only startup .s file, and Src/main.c (or Core/Src/main.c)
+- comment out and erase all other includes, header and source files
