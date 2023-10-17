@@ -13,3 +13,11 @@ Address is 0x4002 0C00 + 0x00 (offset: 0x00) --> **0x40020C00**
 
 •	GPIOD *output data register* (to write):  
 Address is 0x4002 0C00 + 0x14 (offset: 0x14) --> **0x40020C14**
+
+
+To prevent compilation errors:
+In startup file, add at the end: **.weak SystemInit**
+
+In Makefile:
+- comment out USE_HAL_DRIVER
+- source files: keep only startup .s file, and Src/main.c (or Core/Src/main.c) • comment out and erase all other includes, header and source files
